@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroud"
     android:orientation="vertical"
-    android:padding="@dimen/_16sdp"
-    tools:context=".LoginAvtivity">
+    android:padding="@dimen/_24sdp"
+    tools:context=".ui.activity.LoginAvtivity">
 
 
     <ImageView
@@ -30,35 +31,74 @@
         android:text="Enter your email and password"
         android:textColor="@color/secondary_text" />
 
-
-    <EditText
-        android:layout_marginTop="@dimen/_24sdp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_round_email"
-        android:drawablePadding="@dimen/_8sdp"
-        android:hint="Email" />
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_16sdp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_email"
+            android:layout_gravity="center"/>
 
-    <EditText
-        android:layout_marginTop="@dimen/_16sdp"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_round_lock_24"
-        android:drawablePadding="@dimen/_8sdp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:passwordToggleEnabled="true" />
+        app:boxBackgroundColor="@color/backgroud">
+
+        <EditText
+            android:id="@+id/et_email_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:maxLines="1"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_16sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_lock_24"
+            android:layout_gravity="center"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/backgroud">
+
+            <EditText
+                android:id="@+id/et_pass_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_get_started"
+        android:id="@+id/btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_32sdp"
         android:background="@drawable/bg_button_green"
         android:clickable="true"
         android:focusable="true"
-        android:text="Get Started"
+        android:text="Sign In"
         android:textAllCaps="false" />
 
     <LinearLayout
@@ -76,13 +116,16 @@
             android:textColor="@color/primary_text" />
 
         <TextView
+            android:id="@+id/tv_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_weight="1.6"
             android:text="Sign Up"
+            android:clickable="true"
             android:textColor="@color/primary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:focusable="true" />
     </LinearLayout>
 
 </LinearLayout>

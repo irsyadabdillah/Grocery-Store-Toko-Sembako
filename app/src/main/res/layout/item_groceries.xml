@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_180sdp"
+    android:layout_height="@dimen/_80sdp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    android:background="@drawable/bg_rounded"
+    android:orientation="horizontal"
+    app:layout_constraintCircleRadius="@dimen/_8sdp">
+
+
+    <ImageView
+        android:id="@+id/iv_picture_groceris"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_16sdp"
+        tools:src="@drawable/iv_bananas" />
+
+
+    <TextView
+        android:id="@+id/tv_name_groceries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textAlignment="center"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        tools:text="Fresh Fruits &amp; Vegetable" />
+
+</LinearLayout>

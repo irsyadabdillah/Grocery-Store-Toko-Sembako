@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.account.AccountFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:paddingHorizontal="@dimen/_24sdp">
+
+                <TextView
+                    android:id="@+id/rv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="Irsyad Abdillah "
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_edit_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.42000002" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="16dp"
+                    android:text="irsyadabdilah96@gmail.com"
+                    android:textColor="@color/secondary_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_name"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:backgroundTint="@color/primary"
+                    app:cardCornerRadius="72dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/picture_avatar_green" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="Orders"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_orders" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="My Details"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_detail" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="Delivery Address"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_delicery_address" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="Payment Methods"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_payment" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_14sdp"
+                android:text="Promo Card"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_promo" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="Notifications"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_bell" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="Help"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_help" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:drawablePadding="@dimen/_16sdp"
+                android:text="About"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_about" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/gray" />
+
+            <Button
+                android:id="@+id/btn_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_margin="@dimen/_16sdp"
+                android:background="@drawable/bg_button_gray"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_log_out"
+                android:focusable="true"
+                android:text="Log Out"
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

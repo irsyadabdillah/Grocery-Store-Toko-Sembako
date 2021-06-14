@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroud">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:paddingHorizontal="@dimen/_24sdp">
+
+                <TextView
+                    android:id="@+id/rv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello Irsyad!"
+                    android:textColor="@color/primary_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.40" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Let's order!"
+                    android:textColor="@color/secondary_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_name"
+                    app:layout_constraintVertical_bias="0.20" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    app:cardCornerRadius="72dp"
+                    android:backgroundTint="@color/primary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/bg_search"
+                android:drawablePadding="@dimen/_8sdp"
+                android:text="Search Store"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                app:drawableStartCompat="@drawable/ic_search" />
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_84sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="2000" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Exclusive Offer"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See all"
+                    android:textColor="@color/primary"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_exclusive_offer"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_16sdp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_exclusive_offer"
+                tools:ignore="RtlSymmetry" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Groceries"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See all"
+                    android:textColor="@color/primary"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_groceries"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_16sdp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:ignore="RtlSymmetry"
+                tools:listitem="@layout/item_groceries"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Best Selling"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See all"
+                    android:textColor="@color/primary"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_best_selling"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_16sdp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:ignore="RtlSymmetry" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

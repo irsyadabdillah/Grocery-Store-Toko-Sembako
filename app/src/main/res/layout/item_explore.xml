@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_140sdp"
+    android:layout_height="@dimen/_160sdp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    android:background="@drawable/bg_round_white"
+    android:elevation="3px"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/_16sdp">
+
+    <ImageView
+        android:id="@+id/iv_picture_explore"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        tools:src="@drawable/iv_bananas" />
+
+    <TextView
+        android:id="@+id/tv_name_explore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:textAlignment="center"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        tools:text="Fresh Fruits &amp; Vegetable" />
+
+</LinearLayout>

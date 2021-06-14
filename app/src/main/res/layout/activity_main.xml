@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity"
+    android:background="@color/backgroud">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_52sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:elevation="@dimen/_2sdp"
+        android:elevation="@dimen/_16sdp"
+        android:background="@drawable/bg_bottom_nav_bar"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav"/>
+
+</LinearLayout>

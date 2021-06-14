@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#53b175</color>
-    <color name="backgroud">#252c4b</color>
-    <color name="card_background">#27325f</color>
+    <color name="backgroud">#1d2733</color>
+    <color name="card_background">#212d3b</color>
     <color name="primary_text">#ffffff</color>
     <color name="secondary_text">#797f95</color>
     <color name="white">#FFFFFFFF</color>
@@ -10,5 +10,11 @@
     <color name="dashboard_item_2">#797f95</color>
     <color name="dashboard_item_3">#72a4ff</color>
     <color name="dashboard_item_4">#8b72bb</color>
+    <color name="whitesmoke">#f2f3f2</color>
+    <color name="gray">#8c8c8c</color>
 
+    <color name="seashell">#fef6ed</color>
+    <color name="honeydew">#e5f3ea</color>
+    <color name="purplesmoke">#f4ebf7</color>
+    <color name="mistyrose">#fde8e4</color>
 </resources>

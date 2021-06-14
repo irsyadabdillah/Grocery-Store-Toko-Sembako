@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/backgroud">
+
+    <TextView
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Find Products"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14sdp"/>
+
+    <EditText
+        android:layout_marginTop="@dimen/_16sdp"
+        android:id="@+id/et_search"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/bg_search"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/_8sdp"
+        android:hint="Search"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_gexplore"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_explore"
+                tools:itemCount="6"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

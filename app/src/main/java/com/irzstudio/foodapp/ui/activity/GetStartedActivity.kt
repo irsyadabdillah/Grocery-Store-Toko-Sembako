@@ -1,8 +1,9 @@
-package com.irzstudio.foodapp
+package com.irzstudio.foodapp.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.irzstudio.foodapp.R
 import kotlinx.android.synthetic.main.activity_get_started.*
 
 class GetStartedActivity : AppCompatActivity() {
