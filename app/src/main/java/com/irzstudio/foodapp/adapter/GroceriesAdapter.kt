@@ -10,12 +10,18 @@ import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.model.groceries.GroceriesData
 import kotlinx.android.synthetic.main.item_groceries.view.*
 
-class GroceriesAdapter: RecyclerView.Adapter<GroceriesAdapter.GroceriesViewHolder>() {
+class GroceriesAdapter(val onClick : () -> Unit): RecyclerView.Adapter<GroceriesAdapter.GroceriesViewHolder>() {
     private var list: MutableList<GroceriesData> = mutableListOf()
 
     inner class GroceriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("UseCompatLoadingForDrawables")
         fun bind(groceriesdata: GroceriesData) {
+
+            itemView.setOnClickListener {
+                if (adapterPosition == 0) {
+                    onClick.invoke()
+                }
+            }
 
             Glide.with(itemView).load(groceriesdata.picture).into(itemView.iv_picture_groceris)
             itemView.tv_name_groceries.text = groceriesdata.name

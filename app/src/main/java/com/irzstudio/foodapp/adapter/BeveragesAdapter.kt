@@ -6,23 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.irzstudio.foodapp.R
-import com.irzstudio.foodapp.model.bestselling.BestSellingEntity
-import com.irzstudio.foodapp.model.beverages.BeveragesEntity
-import kotlinx.android.synthetic.main.item_best_selling.view.*
+import com.irzstudio.foodapp.model.product.ProductEntity
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class BeveragesAdapter : RecyclerView.Adapter<BeveragesAdapter.BeveragesViewHolder>() {
 
-    private var list: MutableList<BeveragesEntity> = mutableListOf()
+    private var list: MutableList<ProductEntity> = mutableListOf()
 
     inner class BeveragesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(beveragesEntity: BeveragesEntity) {
+        fun bind(productEntity: ProductEntity) {
 
-            Glide.with(itemView).load(beveragesEntity.picture).into(itemView.iv_picture_product)
-            itemView.tv_name_product.text = beveragesEntity.name
-            itemView.tv_description_product.text = beveragesEntity.description
-            itemView.tv_price_product.text = beveragesEntity.price.toString()
-
+            Glide.with(itemView).load(productEntity.picture).into(itemView.iv_picture_product)
+            itemView.tv_name_product.text = productEntity.name
+            itemView.tv_description_product.text = productEntity.description
+            itemView.tv_price_product.text = productEntity.price.toString()
         }
     }
 
@@ -40,7 +37,7 @@ class BeveragesAdapter : RecyclerView.Adapter<BeveragesAdapter.BeveragesViewHold
         return list.size
     }
 
-    fun setDataAdapter(data: List<BeveragesEntity>) {
+    fun setDataAdapter(data: List<ProductEntity>) {
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()

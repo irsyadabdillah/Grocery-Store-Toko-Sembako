@@ -11,11 +11,11 @@ import com.irzstudio.foodapp.adapter.BestSellingAdapter
 import com.irzstudio.foodapp.adapter.ExclusiveAdapter
 import com.irzstudio.foodapp.adapter.GroceriesAdapter
 import com.irzstudio.foodapp.listener.OnClickItemBestSelling
-import com.irzstudio.foodapp.listener.OnClickItemExclusife
-import com.irzstudio.foodapp.model.bestselling.BestSellingEntity
-import com.irzstudio.foodapp.model.exclusiveoffer.ExclusiveOfferEntity
+import com.irzstudio.foodapp.listener.OnClickItemExclusive
+import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.ui.activity.MainActivity
 import com.irzstudio.foodapp.ui.detailproduct.DetailProductActivity
+import com.irzstudio.foodapp.ui.product.ProductActivity
 import com.irzstudio.foodapp.utill.Constant
 import kotlinx.android.synthetic.main.fragment_shop.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -28,7 +28,9 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     }
 
     private val groceriesAdapter: GroceriesAdapter by lazy {
-        GroceriesAdapter()
+        GroceriesAdapter{
+            startActivity(Intent(activity, ProductActivity::class.java))
+        }
     }
 
     private val bestSellingAdapter: BestSellingAdapter by lazy {
@@ -81,11 +83,10 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     private fun setListExclusive() {
         rv_exclusive_offer.setHasFixedSize(true)
         rv_exclusive_offer.adapter = exclusiveAdapter
-        exclusiveAdapter.onClickListener = object : OnClickItemExclusife{
-            override fun onClick(exclusiveOfferEntity: ExclusiveOfferEntity) {
-                toDetailExclusifeOffer(exclusiveOfferEntity)
+        exclusiveAdapter.onClickListener = object : OnClickItemExclusive{
+            override fun onClick(productEntity: ProductEntity) {
+                toDetailExclusifeOffer(productEntity)
             }
-
         }
     }
 
@@ -110,23 +111,24 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
         rv_best_selling.setHasFixedSize(true)
         rv_best_selling.adapter = bestSellingAdapter
         bestSellingAdapter.onClickListener = object : OnClickItemBestSelling {
-            override fun onClick(bestSellingEntity: BestSellingEntity) {
-                toDetailBestSelling(bestSellingEntity)
+            override fun onClick(productEntity: ProductEntity) {
+                toDetailBestSelling(productEntity)
             }
-
         }
     }
 
-    private fun toDetailExclusifeOffer(exclusiveOfferEntity: ExclusiveOfferEntity) {
+    private fun toDetailExclusifeOffer(productEntity: ProductEntity) {
         val intent = Intent(activity, DetailProductActivity::class.java)
-        intent.putExtra(Constant.ID, exclusiveOfferEntity.id)
+        intent.putExtra(Constant.DATA, productEntity)
         startActivity(intent)
     }
 
-    private fun toDetailBestSelling(bestSellingEntity: BestSellingEntity) {
+    private fun toDetailBestSelling(productEntity: ProductEntity) {
         val intent = Intent(activity, DetailProductActivity::class.java)
-        intent.putExtra(Constant.ID, bestSellingEntity.id)
+        intent.putExtra(Constant.DATA, productEntity)
         startActivity(intent)
     }
+
+
 
 }

@@ -15,6 +15,7 @@
         android:gravity="center">
 
         <ImageView
+            android:id="@+id/iv_picture_detail"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
             tools:src="@drawable/iv_apple" />
@@ -45,7 +46,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/ic_favorite"
+                android:id="@+id/btn_favorite"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:button="@drawable/favorite_checkbox"

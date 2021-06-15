@@ -7,27 +7,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.listener.OnClickItemBestSelling
-import com.irzstudio.foodapp.listener.OnClickItemExclusife
-import com.irzstudio.foodapp.model.bestselling.BestSellingEntity
+import com.irzstudio.foodapp.model.product.ProductEntity
 import kotlinx.android.synthetic.main.item_best_selling.view.*
-import kotlinx.android.synthetic.main.item_exclusive_offer.view.*
 
 class BestSellingAdapter : RecyclerView.Adapter<BestSellingAdapter.BestSellingViewHolder>() {
 
-    private var list: MutableList<BestSellingEntity> = mutableListOf()
+    private var list: MutableList<ProductEntity> = mutableListOf()
     var onClickListener: OnClickItemBestSelling? =null
 
     inner class BestSellingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(bestSellingEntity: BestSellingEntity) {
+        fun bind(productEntity: ProductEntity) {
 
             itemView.setOnClickListener {
-                onClickListener?.onClick(bestSellingEntity)
+                onClickListener?.onClick(productEntity)
             }
 
-            Glide.with(itemView).load(bestSellingEntity.picture).into(itemView.iv_picture_best_selling)
-            itemView.tv_name_best_selling.text = bestSellingEntity.name
-            itemView.tv_description_best_selling.text = bestSellingEntity.description
-            itemView.tv_price_best_selling.text = bestSellingEntity.price.toString()
+            Glide.with(itemView).load(productEntity.picture).into(itemView.iv_picture_best_selling)
+            itemView.tv_name_best_selling.text = productEntity.name
+            itemView.tv_description_best_selling.text = productEntity.description
+            itemView.tv_price_best_selling.text = productEntity.price.toString()
 
         }
     }
@@ -46,7 +44,7 @@ class BestSellingAdapter : RecyclerView.Adapter<BestSellingAdapter.BestSellingVi
         return list.size
     }
 
-    fun setDataAdapter(data: List<BestSellingEntity>) {
+    fun setDataAdapter(data: List<ProductEntity>) {
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()

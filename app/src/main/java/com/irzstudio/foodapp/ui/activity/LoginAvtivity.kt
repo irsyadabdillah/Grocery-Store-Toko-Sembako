@@ -27,17 +27,21 @@ class LoginAvtivity : AppCompatActivity() {
 
     private fun loginOrSignIn() {
         btn_sign_in.setOnClickListener {
-            if (et_email_login.text.isEmpty()) {
-                et_email_login.error = null
-                et_email_login.requestFocus()
-                Toast.makeText(this, "Email is empty", Toast.LENGTH_SHORT).show()
-            } else if (et_pass_login.text.isEmpty()) {
-                et_pass_login.error = null
-                et_pass_login.requestFocus()
-                Toast.makeText(this, "Password is empty", Toast.LENGTH_SHORT).show()
+            when {
+                et_email_login.text.isEmpty() -> {
+                    et_email_login.error = null
+                    et_email_login.requestFocus()
+                    Toast.makeText(this, "Email is empty", Toast.LENGTH_SHORT).show()
+                }
+                et_pass_login.text.isEmpty() -> {
+                    et_pass_login.error = null
+                    et_pass_login.requestFocus()
+                    Toast.makeText(this, "Password is empty", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                }
             }
-            startActivity(Intent(applicationContext, ProductActivity::class.java))
-
         }
     }
 

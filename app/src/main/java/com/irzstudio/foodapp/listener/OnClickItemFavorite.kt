@@ -2,6 +2,6 @@ package com.irzstudio.foodapp.listener
 
 import com.irzstudio.foodapp.model.product.ProductEntity
 
-interface OnClickItemBestSelling {
+interface OnClickItemFavorite {
     fun onClick(productEntity: ProductEntity)
 }

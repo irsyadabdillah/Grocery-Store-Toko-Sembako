@@ -3,14 +3,14 @@ package com.irzstudio.foodapp.ui.product
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.irzstudio.foodapp.data.DummyDataSource
-import com.irzstudio.foodapp.model.beverages.BeveragesEntity
+import com.irzstudio.foodapp.data.Repository
+import com.irzstudio.foodapp.model.product.ProductEntity
 import io.reactivex.disposables.CompositeDisposable
 
-class ProductViewModel(val dummyDataSource: DummyDataSource): ViewModel() {
+class ProductViewModel(val repository : Repository): ViewModel() {
 
-    private val _beverages = MutableLiveData<ArrayList<BeveragesEntity>>()
-    val beverages: LiveData<ArrayList<BeveragesEntity>> = _beverages
+    private val _beverages = MutableLiveData<ArrayList<ProductEntity>>()
+    val beverages: LiveData<ArrayList<ProductEntity>> = _beverages
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
@@ -20,7 +20,7 @@ class ProductViewModel(val dummyDataSource: DummyDataSource): ViewModel() {
     }
 
     fun showDataBeverages() {
-        val beveragesDisposable = dummyDataSource.getBeverages()
+        val beveragesDisposable = repository.getBeverages()
             .doOnSubscribe { }
             .doFinally { }
             .subscribe(

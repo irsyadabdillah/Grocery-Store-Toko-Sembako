@@ -1,4 +1,4 @@
-package com.irzstudio.foodapp.model.bestselling
+package com.irzstudio.foodapp.model.product
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -7,19 +7,19 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "best_selling")
-data class BestSellingEntity(
+@Entity(tableName = "product")
+data class ProductEntity(
     @PrimaryKey
     @ColumnInfo(name="id")
-    val id: Int?,
+    val id: Int = 0,
     @ColumnInfo(name= "name")
-    val name: String,
+    val name: String = "",
     @ColumnInfo(name= "picture")
-    val picture: Int,
+    val picture: Int = 0,
     @ColumnInfo(name= "description")
-    val description: String,
+    val description: String = "",
     @ColumnInfo(name= "price")
-    val price: Double,
+    val price: Long = 0L,
     @ColumnInfo(name= "qty")
     val qty: Int = 0
 
