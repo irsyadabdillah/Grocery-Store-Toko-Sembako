@@ -45,7 +45,6 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     private fun setListFavorite() {
         rv_favorite.setHasFixedSize(true)
         rv_favorite.adapter = favoriteAdapter
-        val layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
         favoriteAdapter.onClickListener = object : OnClickItem {
             override fun onClick(productEntity: ProductEntity) {
