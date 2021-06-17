@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroud"
     android:orientation="vertical"
     tools:context=".ui.detailproduct.DetailProductActivity">
@@ -25,32 +25,32 @@
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginHorizontal="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp">
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_name_detail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:text="Natural Red Apple"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_16ssp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Natural Red Apple" />
 
             <CheckBox
                 android:id="@+id/btn_favorite"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:button="@drawable/favorite_checkbox"
-                app:useMaterialThemeColors="false"/>
+                app:useMaterialThemeColors="false" />
 
         </LinearLayout>
 
@@ -58,60 +58,29 @@
             android:id="@+id/tv_description_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="1kg, Price"
+            android:layout_marginStart="@dimen/_16sdp"
             android:textColor="@color/secondary_text"
-            android:layout_marginStart="@dimen/_16sdp"/>
+            tools:text="1kg, Price" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_price_detail"
+            android:layout_width="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
-            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="@dimen/_16sdp">
-
-            <ImageView
-                android:id="@+id/btn_min_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_minus"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:id="@+id/tv_value_detail"
-                android:layout_marginHorizontal="@dimen/_8sdp"
-                android:layout_width="@dimen/_34sdp"
-                android:layout_height="@dimen/_34sdp"
-                android:background="@drawable/bg_round_white_item"
-                tools:text="1"
-                android:gravity="center"/>
-
-            <ImageView
-                android:id="@+id/btn_plus_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_round_add_green"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:id="@+id/tv_price_detail"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                tools:text="Rp.25.000"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/_16sdp"
-                android:textStyle="bold"
-                android:gravity="right|center"
-                tools:ignore="RtlHardcoded" />
-
-        </LinearLayout>
+            android:gravity="right|center"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded"
+            tools:text="Rp.25.000" />
 
         <View
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_marginHorizontal="@dimen/_16sdp"
-            android:background="@color/gray"/>
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@color/gray" />
 
     </LinearLayout>
 
@@ -125,8 +94,7 @@
         android:background="@drawable/bg_button_green"
         android:clickable="true"
         android:focusable="true"
-        android:text="Add To Basket"
+        android:text="Add To Cart"
         android:textAllCaps="false" />
-
 
 </LinearLayout>

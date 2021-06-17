@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.irzstudio.foodapp.data.Repository
 import com.irzstudio.foodapp.model.product.ProductEntity
+import com.irzstudio.foodapp.utill.ProductSavedType
 import io.reactivex.disposables.CompositeDisposable
 
 class DetailProductViewModel(val repository: Repository) : ViewModel() {
@@ -22,16 +23,24 @@ class DetailProductViewModel(val repository: Repository) : ViewModel() {
         CompositeDisposable()
     }
 
+    private var dataFavorite: ArrayList<ProductEntity> = ArrayList()
+
+    fun loadDataDetail() {
+        dataFavorite.clear()
+        dataFavorite.addAll(repository.getAllDb(ProductSavedType.FAV))
+        _detailProduct.postValue(dataFavorite)
+    }
+
     fun saveProduct(productEntity: ProductEntity) {
-        repository.saveProduct(productEntity)
+        repository.addToFav(productEntity)
     }
 
     fun removeProduct(productEntity: ProductEntity) {
-        val detail = productEntity
-        repository.removeProduct(productEntity.id)
+         repository.removeProductFav(productEntity.id, ProductSavedType.FAV)
     }
 
     fun checkProduct(productEntity: ProductEntity) {
         _isfavorited.postValue(repository.checkProduct(productEntity.id))
     }
+
 }

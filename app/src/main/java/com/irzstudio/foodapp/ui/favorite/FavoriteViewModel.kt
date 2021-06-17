@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.irzstudio.foodapp.data.Repository
 import com.irzstudio.foodapp.model.product.ProductEntity
+import com.irzstudio.foodapp.utill.ProductSavedType
 
 class FavoriteViewModel(val repository : Repository): ViewModel() {
 
@@ -15,7 +16,7 @@ class FavoriteViewModel(val repository : Repository): ViewModel() {
 
     fun loadDataFavorite() {
         dataFavorite.clear()
-        dataFavorite.addAll(repository.getAllDb())
+        dataFavorite.addAll(repository.getAllDb(ProductSavedType.FAV))
         _favoriteProduct.postValue(dataFavorite)
     }
 

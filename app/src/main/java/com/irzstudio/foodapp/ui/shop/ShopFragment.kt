@@ -4,19 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.adapter.BestSellingAdapter
 import com.irzstudio.foodapp.adapter.ExclusiveAdapter
 import com.irzstudio.foodapp.adapter.GroceriesAdapter
-import com.irzstudio.foodapp.listener.OnClickItemBestSelling
-import com.irzstudio.foodapp.listener.OnClickItemExclusive
+import com.irzstudio.foodapp.listener.OnClickItemAndAdd
 import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.ui.activity.MainActivity
 import com.irzstudio.foodapp.ui.detailproduct.DetailProductActivity
 import com.irzstudio.foodapp.ui.product.ProductActivity
 import com.irzstudio.foodapp.utill.Constant
+import com.irzstudio.foodapp.utill.ProductSavedType
 import kotlinx.android.synthetic.main.fragment_shop.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -28,7 +29,7 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     }
 
     private val groceriesAdapter: GroceriesAdapter by lazy {
-        GroceriesAdapter{
+        GroceriesAdapter {
             startActivity(Intent(activity, ProductActivity::class.java))
         }
     }
@@ -83,9 +84,13 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     private fun setListExclusive() {
         rv_exclusive_offer.setHasFixedSize(true)
         rv_exclusive_offer.adapter = exclusiveAdapter
-        exclusiveAdapter.onClickListener = object : OnClickItemExclusive{
+        exclusiveAdapter.onClickListener = object : OnClickItemAndAdd {
             override fun onClick(productEntity: ProductEntity) {
                 toDetailExclusifeOffer(productEntity)
+            }
+
+            override fun onClickAdd(productEntity: ProductEntity) {
+                addProductToCart(productEntity, ProductSavedType.CART)
             }
         }
     }
@@ -110,9 +115,13 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     private fun setListBestSelling() {
         rv_best_selling.setHasFixedSize(true)
         rv_best_selling.adapter = bestSellingAdapter
-        bestSellingAdapter.onClickListener = object : OnClickItemBestSelling {
+        bestSellingAdapter.onClickListener = object : OnClickItemAndAdd {
             override fun onClick(productEntity: ProductEntity) {
                 toDetailBestSelling(productEntity)
+            }
+
+            override fun onClickAdd(productEntity: ProductEntity) {
+                addProductToCart(productEntity, ProductSavedType.CART)
             }
         }
     }
@@ -129,6 +138,13 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
         startActivity(intent)
     }
 
-
-
+    private fun addProductToCart(productEntity: ProductEntity, cart: Int) {
+        if (productEntity.qty == 0) {
+            viewModel.addToCahar(productEntity, ProductSavedType.CART)
+            Toast.makeText(activity, "Product added to cart", Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.removeProduct(productEntity, ProductSavedType.CART)
+            Toast.makeText(activity, "Product removed from cart", Toast.LENGTH_SHORT).show()
+        }
+    }
 }

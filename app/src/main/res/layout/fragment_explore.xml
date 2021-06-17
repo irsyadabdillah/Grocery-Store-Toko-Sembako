@@ -17,18 +17,17 @@
         android:textStyle="bold"
         android:textSize="@dimen/_14sdp"/>
 
-    <EditText
-        android:layout_marginTop="@dimen/_16sdp"
+    <SearchView
         android:id="@+id/et_search"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        android:paddingHorizontal="@dimen/_16sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/bg_search"
         android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="@dimen/_8sdp"
-        android:hint="Search"
-        android:imeOptions="actionSearch"
+        android:queryHint="Search"
+        android:queryBackground="@drawable/bg_search"
+        android:iconifiedByDefault="false"
         android:inputType="text"
         android:maxLines="1"
         android:focusable="true"
@@ -45,15 +44,12 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_gexplore"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:id="@+id/rv_explore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_16sdp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:listitem="@layout/item_explore"
-                tools:itemCount="6"/>
+                android:layout_marginTop="@dimen/_16sdp"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_explore" />
 
         </LinearLayout>
 

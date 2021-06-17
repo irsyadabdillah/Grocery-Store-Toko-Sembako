@@ -1,5 +1,6 @@
 package com.irzstudio.foodapp.ui.detailproduct
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.utill.Constant
 import kotlinx.android.synthetic.main.activity_detail_product.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.DecimalFormat
 
 class DetailProductActivity : AppCompatActivity() {
 
@@ -25,16 +27,23 @@ class DetailProductActivity : AppCompatActivity() {
 
         observeIsFavorited()
         loadDataDetail(product!!)
+
+        viewModel.checkProduct(product!!)
+        viewModel.loadDataDetail()
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun loadDataDetail(productEntity: ProductEntity) {
+        val price = productEntity.price
+        val dec = DecimalFormat("#,###")
+        val priceRupiah = dec.format(price)
+
         Glide.with(this).load(productEntity.picture)
             .transition(DrawableTransitionOptions.withCrossFade()).into(iv_picture_detail)
         tv_name_detail.text = productEntity.name
         tv_description_detail.text = productEntity.description
-        tv_price_detail.text = productEntity.price.toString()
-        tv_value_detail.text = productEntity.qty.toString()
+        tv_price_detail.text = "IDR $priceRupiah"
     }
 
     private fun observeIsFavorited() {

@@ -7,3 +7,8 @@ object Constant {
     const val ID = "id"
     const val DATA = "data"
 }
+
+object ProductSavedType{
+    const val CART = 1
+    const val FAV = 2
+}

@@ -87,7 +87,7 @@ class DummyDataSource {
             id = 9
         )
 
-        val dummy3 = ProductEntity(name = "Apple $ Grape Juice", description = "2L, Price",
+        val dummy3 = ProductEntity(name = "Apple & Grape Juice", description = "2L, Price",
             price = 20000,
             picture = R.drawable.iv_juice_apple_grape,
             id = 10
@@ -115,7 +115,7 @@ class DummyDataSource {
         return Observable.just(ArrayList(data))
     }
 
-    fun getSearchData(qword: String): Observable<List<ProductEntity>> {
+    fun getSearchData(qword: String?): Observable<List<ProductEntity>> {
         val listData = listOf(getBestSelling(), getExclusive(),getBeverages())
         val resultData = mutableListOf<ProductEntity>()
 
@@ -124,7 +124,7 @@ class DummyDataSource {
         }
             .map {
                 return@map resultData.filter {
-                    it.name.contains(qword, true)
+                    it.name.contains(qword.orEmpty(), true)
                 }
             }
     }

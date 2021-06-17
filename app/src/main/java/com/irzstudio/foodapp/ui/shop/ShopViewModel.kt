@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.irzstudio.foodapp.data.Repository
 import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.model.groceries.GroceriesData
+import com.irzstudio.foodapp.utill.ProductSavedType
 import io.reactivex.disposables.CompositeDisposable
 
 class ShopViewModel(val repository : Repository) : ViewModel() {
@@ -13,11 +14,14 @@ class ShopViewModel(val repository : Repository) : ViewModel() {
     private val _exclusiveOffer = MutableLiveData<ArrayList<ProductEntity>>()
     val exclusiveOffer: LiveData<ArrayList<ProductEntity>> = _exclusiveOffer
 
+    private val _bestsSelling = MutableLiveData<ArrayList<ProductEntity>>()
+    val bestsSelling: LiveData<ArrayList<ProductEntity>> = _bestsSelling
+
     private val _groceries = MutableLiveData<ArrayList<GroceriesData>>()
     val groceries: LiveData<ArrayList<GroceriesData>> = _groceries
 
-    private val _bestsSelling = MutableLiveData<ArrayList<ProductEntity>>()
-    val bestsSelling: LiveData<ArrayList<ProductEntity>> = _bestsSelling
+    private val _isAddedToCart = MutableLiveData<Boolean>()
+    val isAddedToCart: LiveData<Boolean> = _isAddedToCart
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
@@ -54,6 +58,22 @@ class ShopViewModel(val repository : Repository) : ViewModel() {
             .subscribe({ _bestsSelling.postValue(it) },
             { _errorMessage.postValue(it.localizedMessage)})
         compositeDisposable.add(bestSellingDisposable)
+    }
+
+    fun addToCahar(productEntity: ProductEntity, cart: Int) {
+        repository.addToCart(productEntity)
+    }
+
+    fun removeProduct(productEntity: ProductEntity, cart: Int) {
+        repository.removeProductCart(productEntity.id, ProductSavedType.CART)
+    }
+
+    fun updateProduct(productEntity: ProductEntity) {
+        repository.updateProduct(productEntity)
+    }
+
+    fun checkProduct(productEntity: ProductEntity) {
+        _isAddedToCart.postValue(repository.checkProduct(productEntity.id))
     }
 
 }

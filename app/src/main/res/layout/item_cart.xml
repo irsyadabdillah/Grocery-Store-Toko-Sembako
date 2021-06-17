@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/iv_picture_groceris"
+            android:id="@+id/iv_picture_cart"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center"
@@ -48,7 +48,7 @@
                         tools:text="Natural Red Apple" />
 
                     <ImageView
-                        android:id="@+id/ic_delete"
+                        android:id="@+id/btn_delete_cart"
                         android:layout_width="@dimen/_24sdp"
                         android:layout_height="@dimen/_24sdp"
                         android:src="@drawable/ic_delete_or_close" />

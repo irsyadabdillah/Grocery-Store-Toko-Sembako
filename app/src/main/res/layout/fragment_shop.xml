@@ -90,7 +90,7 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 app:iss_auto_cycle="true"
                 app:iss_delay="0"
-                app:iss_period="2000" />
+                app:iss_period="1000" />
 
             <LinearLayout
                 android:layout_marginTop="@dimen/_16sdp"

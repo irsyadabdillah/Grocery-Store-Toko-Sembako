@@ -17,6 +17,7 @@ class AppController: Application() {
             modules(dataModule)
             modules(viewModelModule)
         }
+        INSTANCE = this
     }
     companion object{
         private var INSTANCE: AppController? = null
