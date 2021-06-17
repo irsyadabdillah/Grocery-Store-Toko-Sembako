@@ -85,7 +85,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_detail"
+        android:id="@+id/btn_detail_addtocart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
         android:layout_gravity="bottom"

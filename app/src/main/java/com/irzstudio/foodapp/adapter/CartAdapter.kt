@@ -10,12 +10,13 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.listener.OnClickItem
 import com.irzstudio.foodapp.listener.OnClickItemAddRemove
+import com.irzstudio.foodapp.listener.OnTotalChange
 import com.irzstudio.foodapp.model.product.ProductEntity
 import kotlinx.android.synthetic.main.item_cart.view.*
 import kotlinx.android.synthetic.main.item_favorite.view.*
 import java.text.DecimalFormat
 
-class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     private var list: MutableList<ProductEntity> = mutableListOf()
     var onClickListener: OnClickItemAddRemove? =null
@@ -43,6 +44,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
             itemView.btn_plus_cart.setOnClickListener {
                 onClickListener?.onClickAdd(productEntity)
             }
+
 
             Glide.with(itemView)
                 .load(productEntity.picture)
@@ -74,6 +76,8 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()
+        val total = list.sumBy{it.priceToQty}
+        listener.onTotalChange(total)
     }
 
 }

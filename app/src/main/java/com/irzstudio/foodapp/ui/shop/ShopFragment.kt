@@ -139,12 +139,9 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
     }
 
     private fun addProductToCart(productEntity: ProductEntity, cart: Int) {
-        if (productEntity.qty == 0) {
             viewModel.addToCahar(productEntity, ProductSavedType.CART)
             Toast.makeText(activity, "Product added to cart", Toast.LENGTH_SHORT).show()
-        } else {
-            viewModel.removeProduct(productEntity, ProductSavedType.CART)
-            Toast.makeText(activity, "Product removed from cart", Toast.LENGTH_SHORT).show()
-        }
     }
+
+
 }

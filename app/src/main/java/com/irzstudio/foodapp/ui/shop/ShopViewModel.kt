@@ -20,9 +20,6 @@ class ShopViewModel(val repository : Repository) : ViewModel() {
     private val _groceries = MutableLiveData<ArrayList<GroceriesData>>()
     val groceries: LiveData<ArrayList<GroceriesData>> = _groceries
 
-    private val _isAddedToCart = MutableLiveData<Boolean>()
-    val isAddedToCart: LiveData<Boolean> = _isAddedToCart
-
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
@@ -64,16 +61,5 @@ class ShopViewModel(val repository : Repository) : ViewModel() {
         repository.addToCart(productEntity)
     }
 
-    fun removeProduct(productEntity: ProductEntity, cart: Int) {
-        repository.removeProductCart(productEntity.id, ProductSavedType.CART)
-    }
-
-    fun updateProduct(productEntity: ProductEntity) {
-        repository.updateProduct(productEntity)
-    }
-
-    fun checkProduct(productEntity: ProductEntity) {
-        _isAddedToCart.postValue(repository.checkProduct(productEntity.id))
-    }
 
 }

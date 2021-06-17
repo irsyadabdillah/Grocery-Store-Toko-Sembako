@@ -22,7 +22,7 @@ data class ProductEntity(
     @ColumnInfo(name= "description")
     val description: String = "",
     @ColumnInfo(name= "price")
-    val price: Long = 0L,
+    val price: Int = 0,
     @ColumnInfo(name= "qty")
     val qty: Int = 0,
     @ColumnInfo(name = "type")

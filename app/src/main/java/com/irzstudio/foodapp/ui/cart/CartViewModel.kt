@@ -31,4 +31,5 @@ class CartViewModel(val repository: Repository) : ViewModel() {
     fun subtractProduct(productEntity: ProductEntity) {
         repository.subtractCart(productEntity)
     }
+
 }

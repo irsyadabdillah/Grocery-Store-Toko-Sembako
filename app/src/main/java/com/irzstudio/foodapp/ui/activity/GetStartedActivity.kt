@@ -12,7 +12,7 @@ class GetStartedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_get_started)
 
         btn_get_started.setOnClickListener {
-            startActivity(Intent(applicationContext, LoginAvtivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         }
     }

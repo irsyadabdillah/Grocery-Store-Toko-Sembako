@@ -9,6 +9,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.utill.Constant
+import com.irzstudio.foodapp.utill.ProductSavedType
 import kotlinx.android.synthetic.main.activity_detail_product.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.text.DecimalFormat
@@ -27,6 +28,7 @@ class DetailProductActivity : AppCompatActivity() {
 
         observeIsFavorited()
         loadDataDetail(product!!)
+        addProductToCart(product!!, ProductSavedType.CART)
 
         viewModel.checkProduct(product!!)
         viewModel.loadDataDetail()
@@ -62,6 +64,13 @@ class DetailProductActivity : AppCompatActivity() {
                 viewModel.removeProduct(product!!)
                 Toast.makeText(this, "Product removed from favorite", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun addProductToCart(productEntity: ProductEntity, cart: Int) {
+        btn_detail_addtocart.setOnClickListener {
+                viewModel.addToCahar(productEntity, ProductSavedType.CART)
+                Toast.makeText(this, "Product added to cart", Toast.LENGTH_SHORT).show()
         }
     }
 

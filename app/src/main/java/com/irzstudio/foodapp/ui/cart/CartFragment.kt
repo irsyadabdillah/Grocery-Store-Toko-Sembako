@@ -14,12 +14,14 @@ import com.irzstudio.foodapp.R
 import com.irzstudio.foodapp.adapter.CartAdapter
 import com.irzstudio.foodapp.helper.SwipeToDelete
 import com.irzstudio.foodapp.listener.OnClickItemAddRemove
+import com.irzstudio.foodapp.listener.OnTotalChange
 import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.ui.detailproduct.DetailProductActivity
 import com.irzstudio.foodapp.utill.Constant
 import com.irzstudio.foodapp.utill.ProductSavedType
 import kotlinx.android.synthetic.main.fragment_cart.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.DecimalFormat
 
 
 class CartFragment : Fragment(R.layout.fragment_cart) {
@@ -27,11 +29,23 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     private val viewModel: CartViewModel by viewModel()
 
     private val cartAdapter: CartAdapter by lazy {
-        CartAdapter()
+        CartAdapter(object : OnTotalChange{
+            override fun onTotalChange(total: Int) {
+                val dec = DecimalFormat("#,###")
+                val priceRupiah = dec.format(total)
+
+                tv_total_price.text = "IDR $priceRupiah"
+            }
+        })
+    }
+
+    private val product: ProductEntity by lazy {
+        ProductEntity()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         observeCart()
         setListCart()
@@ -86,4 +100,6 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         Toast.makeText(activity, "Product removed from cart", Toast.LENGTH_SHORT).show()
         viewModel.loadDataCart()
     }
+
+
 }

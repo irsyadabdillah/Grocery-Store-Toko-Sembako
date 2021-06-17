@@ -50,10 +50,11 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    app:cardCornerRadius="72dp"
-                    android:backgroundTint="@color/primary"
+                    android:layout_width="@dimen/_46sdp"
+                    android:layout_height="@dimen/_46sdp"
+                    app:cardCornerRadius="@dimen/_46sdp"
+                    android:background="@drawable/bg_card_view"
+                    app:background="@null"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -63,7 +64,9 @@
                     <ImageView
                         android:id="@+id/iv_profile"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_user"
+                        android:layout_gravity="center|bottom"/>
 
                 </androidx.cardview.widget.CardView>
 

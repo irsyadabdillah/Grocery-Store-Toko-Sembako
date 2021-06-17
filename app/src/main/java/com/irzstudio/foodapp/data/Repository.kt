@@ -17,17 +17,19 @@ class Repository(val dummyDataSource: DummyDataSource, val dataBase: DataBase) {
         dataBase.productDao().insert(prod)
     }
 
-    fun addToCart(productEntity: ProductEntity, qty: Int = 1) {
+    fun addToCart(productEntity: ProductEntity, qty: Int = 1 ) {
         val prodList = dataBase.productDao().getById(productEntity.id, ProductSavedType.CART)
         if (prodList.isNotEmpty()) {
             val prod = prodList[0].copy(
                 qty = prodList[0].qty + qty,
                 type = ProductSavedType.CART
             )
+            dataBase.productDao().delete(productEntity)
             dataBase.productDao().insert(prod)
         } else {
             val prod = productEntity.copy(
-                qty = qty, type = ProductSavedType.CART
+                qty = qty,
+                type = ProductSavedType.CART
             )
             dataBase.productDao().insert(prod)
 
@@ -37,30 +39,27 @@ class Repository(val dummyDataSource: DummyDataSource, val dataBase: DataBase) {
     fun subtractCart(productEntity: ProductEntity, qty: Int = 1) {
         if (productEntity.qty > 1) {
             val prod = productEntity.copy(
-                qty = productEntity.qty - qty
+                qty = productEntity.qty - qty,
             )
             dataBase.productDao().delete(productEntity)
             dataBase.productDao().insert(prod)
-        }else {
+        } else {
             dataBase.productDao().delete(productEntity)
         }
     }
+
 
     fun removeProductFav(id: Int, type: Int) {
         dataBase.productDao().deleteById(id, ProductSavedType.FAV)
     }
 
-    fun removeProductCart(id: Int,type: Int) {
+    fun removeProductCart(id: Int, type: Int) {
         dataBase.productDao().deleteById(id, ProductSavedType.CART)
     }
 
     fun checkProduct(id: Int): Boolean {
         val isFavorited = dataBase.productDao().getById(id, ProductSavedType.FAV).size != 0
         return isFavorited
-    }
-
-    fun updateProduct(productEntity: ProductEntity) {
-        dataBase.productDao().update(productEntity)
     }
 
     fun getAllDb(type: Int): List<ProductEntity> {

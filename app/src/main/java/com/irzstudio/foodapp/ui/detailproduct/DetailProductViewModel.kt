@@ -43,4 +43,12 @@ class DetailProductViewModel(val repository: Repository) : ViewModel() {
         _isfavorited.postValue(repository.checkProduct(productEntity.id))
     }
 
+    fun addToCahar(productEntity: ProductEntity, cart: Int) {
+        repository.addToCart(productEntity)
+    }
+
+    fun removeProduct(productEntity: ProductEntity, cart: Int) {
+        repository.removeProductCart(productEntity.id, ProductSavedType.CART)
+    }
+
 }
