@@ -1,5 +1,5 @@
 # Apps Intro
- _This is sample code for application introduction (Splash Screen / Onboarding / Walkthrough / Getting Started Screen) with shared preferences_
+ _A sample Grocery Store app built using the Room, MVVM, Live Data, Rx Java, Dependency Injection (Kotlin Injection) and support Dark Mode_
 
 ![GitHub forks](https://img.shields.io/github/forks/irsyadabdillah/Grocery-Store-Toko-Sembako.svg) ![GitHub contributors](https://img.shields.io/github/contributors/irsyadabdillah/Grocery-Store-Toko-Sembako.svg) ![GitHub top language](https://img.shields.io/github/languages/top/irsyadabdillah/Grocery-Store-Toko-Sembako.svg) ![Visitor](https://visitor-badge.laobi.icu/badge?page_id=irsyadabdillah/Grocery-Store-Toko-Sembako)
 

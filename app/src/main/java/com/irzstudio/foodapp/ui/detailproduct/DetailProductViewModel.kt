@@ -19,10 +19,6 @@ class DetailProductViewModel(val repository: Repository) : ViewModel() {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
-    private val compositeDisposable by lazy {
-        CompositeDisposable()
-    }
-
     private var dataFavorite: ArrayList<ProductEntity> = ArrayList()
 
     fun loadDataDetail() {
@@ -47,8 +43,5 @@ class DetailProductViewModel(val repository: Repository) : ViewModel() {
         repository.addToCart(productEntity)
     }
 
-    fun removeProduct(productEntity: ProductEntity, cart: Int) {
-        repository.removeProductCart(productEntity.id, ProductSavedType.CART)
-    }
 
 }

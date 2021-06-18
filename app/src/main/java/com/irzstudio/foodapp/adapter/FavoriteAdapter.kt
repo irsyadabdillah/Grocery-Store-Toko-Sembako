@@ -59,6 +59,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>
     fun deleteItem(pos:Int) {
         list.removeAt(pos)
         notifyItemRemoved(pos)
+        notifyDataSetChanged()
     }
 
     fun setDataAdapter(data: List<ProductEntity>) {

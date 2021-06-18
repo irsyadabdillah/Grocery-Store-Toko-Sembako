@@ -20,4 +20,10 @@ class FavoriteViewModel(val repository : Repository): ViewModel() {
         _favoriteProduct.postValue(dataFavorite)
     }
 
+    fun removeProduct(pos : Int) {
+        val prod = _favoriteProduct.value?.get(pos)
+        repository.removeProductFav(prod?.id?: pos, ProductSavedType.FAV)
+
+    }
+
 }

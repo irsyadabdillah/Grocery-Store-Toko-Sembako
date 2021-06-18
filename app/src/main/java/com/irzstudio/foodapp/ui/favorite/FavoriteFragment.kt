@@ -15,8 +15,10 @@ import com.irzstudio.foodapp.listener.OnClickItem
 import com.irzstudio.foodapp.model.product.ProductEntity
 import com.irzstudio.foodapp.ui.detailproduct.DetailProductActivity
 import com.irzstudio.foodapp.utill.Constant
+import com.irzstudio.foodapp.utill.ProductSavedType
 import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_favorite.*
+import okhttp3.internal.notify
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -54,7 +56,9 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
             }
 
         }
-        val itemTouchHelper = ItemTouchHelper(SwipeToDelete(favoriteAdapter))
+        val itemTouchHelper = ItemTouchHelper(SwipeToDelete { (viewModel.removeProduct(it)) })
         itemTouchHelper.attachToRecyclerView(rv_favorite)
+        viewModel.loadDataFavorite()
+
     }
 }

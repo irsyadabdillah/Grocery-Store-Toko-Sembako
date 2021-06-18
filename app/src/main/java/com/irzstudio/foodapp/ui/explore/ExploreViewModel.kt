@@ -13,9 +13,6 @@ class ExploreViewModel(val repository: Repository) : ViewModel() {
     private val _searchProduct = MutableLiveData<List<ProductEntity>>()
     val searchProduct: LiveData<List<ProductEntity>> = _searchProduct
 
-    private val _isAddedToCart = MutableLiveData<Boolean>()
-    val isAddedToCart: LiveData<Boolean> = _isAddedToCart
-
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
