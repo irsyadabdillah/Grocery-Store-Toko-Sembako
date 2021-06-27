@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.irzstudio.foodapp">
+    package="com.irzstudio.GroceryStore">
 
     <application
-        android:name=".AppController"
+        android:name="com.irzstudio.GroceryStore.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodApp"
         android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
-        <activity android:name=".ui.product.ProductActivity">
+        <activity android:name="com.irzstudio.GroceryStore.ui.product.ProductActivity">
 
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.irzstudio.GroceryStore.ui.activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name=".ui.activity.RegistrasiActivity" />
-        <activity android:name=".ui.activity.LoginAvtivity" />
-        <activity android:name=".ui.activity.GetStartedActivity" />
-        <activity android:name=".ui.detailproduct.DetailProductActivity" />
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.RegistrasiActivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.LoginAvtivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.GetStartedActivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.detailproduct.DetailProductActivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
