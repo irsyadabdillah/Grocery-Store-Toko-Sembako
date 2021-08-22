@@ -29,8 +29,23 @@ class DummyDataSource {
             picture = R.drawable.iv_ginger,
             id = 4
         )
+        val dummy5 = ProductEntity(name = "Mayonise", description = "150gm, Priceg",
+            price = 14000,
+            picture = R.drawable.iv_mayonnaise_eggless,
+            id = 14
+        )
+        val dummy6 = ProductEntity(name = "Egg AS", description = "1kg, Priceg",
+            price = 22000,
+            picture = R.drawable.iv_egg_as,
+            id = 15
+        )
+        val dummy7 = ProductEntity(name = "Rice", description = "250gm, Priceg",
+            price = 25000,
+            picture = R.drawable.iv_rice,
+            id = 16
+        )
 
-        val data = listOf(dummy1, dummy2, dummy3, dummy4)
+        val data = listOf(dummy1, dummy2, dummy3, dummy4, dummy5, dummy6, dummy7)
         return Observable.just(ArrayList(data))
 
     }

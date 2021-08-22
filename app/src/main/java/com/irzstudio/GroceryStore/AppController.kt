@@ -27,4 +27,6 @@ class AppController: Application() {
             return INSTANCE as AppController
         }
     }
+
+    //Merge Conflict
 }

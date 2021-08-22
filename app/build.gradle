@@ -78,9 +78,6 @@ dependencies {
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     kapt 'android.arch.persistence.room:compiler:1.1.1'
 
-    //Coroutine
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
-
     //Koin
     implementation "org.koin:koin-android:2.0.1"
     implementation "org.koin:koin-android-scope:2.0.1"
